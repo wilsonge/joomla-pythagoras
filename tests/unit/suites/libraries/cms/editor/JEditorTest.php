@@ -6,6 +6,8 @@
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license	    GNU General Public License version 2 or later; see LICENSE
  */
+ 
+ use Joomla\CMS\Editor\Editor as JEditor;
 
 /**
  * Test class for JEditor.
@@ -34,7 +36,7 @@ class JEditorTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new Editor;
+		$this->object = new JEditor;
 	}
 
 	/**
@@ -47,8 +49,8 @@ class JEditorTest extends PHPUnit_Framework_TestCase
 	public function testGetInstance()
 	{
 		$this->assertThat(
-			Editor::getInstance('none'),
-			$this->isInstanceOf('Editor')
+			JEditor::getInstance('none'),
+			$this->isInstanceOf('\Joomla\CMS\Editor\Editor')
 		);
 	}
 
@@ -66,7 +68,7 @@ class JEditorTest extends PHPUnit_Framework_TestCase
 
 		$this->assertThat(
 			$this->object->getState(),
-			$this->equalTo('Editor::getState()')
+			$this->equalTo('JEditor::getState()')
 		);
 	}
 }
